@@ -56,9 +56,9 @@ character LoRAs on an RTX 4090 (24 GB VRAM).
 |---|---|---|
 | `directory` | `C:\path\to\your\dataset` | Folder to read images from. Placeholder, change it. |
 | `image_load_cap` | `0` | Maximum number of images to load. `0` loads all images. Set a small number to test the settings on a few images first. |
-| `start_index` | `0` | Index of the first image to load. Use it to resume a run that stopped part way. |
-| `load_always` | `false` | When `true`, reloads the images on every run even if nothing changed. Turn it on if you add or replace images in the same folder and ComfyUI does not pick them up. |
-| `sort_method` | `None` | Order in which images are loaded. The order does not affect the captions. |
+| `start_index` | `0` | Index of the first image to load. Use it to resume a run that stopped part way. Set `sort_method` to `Alphabetical (ASC)` first, so the order is the same on every run. |
+| `load_always` | `false` | When `false`, ComfyUI reuses the images from the previous run while the node settings stay the same. Turn it on if you add or replace images in the same folder; the folder is then read again on every run. |
+| `sort_method` | `None` | Order in which images are loaded, such as `Alphabetical (ASC)` or `Datetime (ASC)`. The order does not affect the captions. |
 
 ### JoyCaption
 
