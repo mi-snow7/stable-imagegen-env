@@ -6,7 +6,25 @@ caption a whole folder of images in one run.
 
 ## Requirements
 
-<!-- TODO: ComfyUI via Stability Matrix, VRAM notes -->
+- ComfyUI installed as a package in Stability Matrix
+  (see [Stability Matrix setup](../stability-matrix/setup.md))
+- ComfyUI Manager enabled (below)
+
+The bundled workflow loads JoyCaption in full precision (bf16) and was tested on an
+RTX 4090 (24 GB VRAM). See `quantization` in [Workflow Settings](#workflow-settings)
+for GPUs with less VRAM.
+
+## Enable ComfyUI Manager
+
+ComfyUI Manager installs custom nodes from inside ComfyUI. Turn it on in the
+ComfyUI launch options in Stability Matrix:
+
+1. Open **Packages** in Stability Matrix.
+2. Open the menu of the ComfyUI package and select **Launch Options**.
+3. Under **Enable Manager**, check `--enable-manager`.
+4. Select **Save**, then start ComfyUI.
+
+Leave the other launch options at their defaults.
 
 ## Install the Custom Nodes
 
@@ -19,7 +37,15 @@ The workflow uses nodes from two custom node packs:
 | `CaptionSaver` (Caption Saver) | [ComfyUI-JoyCaption](https://github.com/1038lab/ComfyUI-JoyCaption) |
 | `LoadImageListFromDir //Inspire` (Load Image List From Dir) | [ComfyUI-Inspire-Pack](https://github.com/ltdrdata/ComfyUI-Inspire-Pack) |
 
-<!-- TODO: install steps -->
+Install them with ComfyUI Manager:
+
+1. In ComfyUI, open **Manager**, then **Custom Nodes Manager**.
+2. Search for `ComfyUI-JoyCaption` and install the pack by 1038lab.
+3. Search for `ComfyUI-Inspire-Pack` and install it.
+4. Restart ComfyUI.
+
+The JoyCaption model itself is downloaded from Hugging Face the first time the
+workflow runs.
 
 ## Load the Workflow
 

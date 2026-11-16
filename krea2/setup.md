@@ -2,11 +2,16 @@
 
 ## Requirements
 
-<!-- TODO -->
+- Stability Matrix with the shared Models folder
+  (see [Stability Matrix setup](../stability-matrix/setup.md))
 
 ## 1. Install Forge Neo
 
-<!-- TODO: add the package in Stability Matrix -->
+1. Open **Packages** in Stability Matrix and select **Add Package**.
+2. Select **Stable Diffusion WebUI Forge - Neo** and install it.
+
+The default launch options work. No extensions or WebUI settings changes are needed
+for Krea2.
 
 ## 2. Download the Model Files
 
@@ -31,19 +36,7 @@ Notes on the text encoder:
   different model (Qwen3 without vision) used by other image models, and Krea2 does not
   work correctly with them.
 
-## 3. Launch Options
-
-<!-- TODO -->
-
-## 4. Extensions
-
-<!-- TODO: table of extension, purpose, required or optional -->
-
-## 5. WebUI Settings
-
-<!-- TODO -->
-
-## 6. Generation Settings
+## 3. Generation Settings
 
 ### Model
 
@@ -75,7 +68,3 @@ redraws details at the larger size.
 | Hires CFG Scale | `1` | CFG Scale for the second pass. Keep it the same as CFG Scale. |
 | Denoising strength | `0.35` | How much the second pass may change the image. Higher values add more detail but can change faces and composition. |
 | Upscale by | `1.5` | Final size is the base resolution × 1.5. For example, `1024` × `1536` becomes `1536` × `2304`. |
-
-## Troubleshooting
-
-<!-- TODO -->
