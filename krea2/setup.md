@@ -51,16 +51,18 @@ Notes on the text encoder:
 Recommended values differ between checkpoints. Check the checkpoint's model page
 first, and use the values below as a starting point.
 
-The checkpoint used for this guide is made for few-step generation, so 8 steps and
-CFG Scale `1` are enough. Higher values make generation slower without improving the
-image, and a higher CFG Scale can make colors too strong.
+The values below are for a distilled (Turbo) checkpoint. Distilled checkpoints are
+trained to produce in a few steps what the original model needs many steps for, so
+8 steps and CFG Scale `1` are enough. Higher values make generation slower without
+improving the image, and a higher CFG Scale can make colors too strong. Non-distilled
+checkpoints need more steps and a higher CFG Scale.
 
 | Setting | Value | Description |
 |---|---|---|
 | Sampling method | `Euler` | |
 | Schedule type | `Simple` | |
-| Sampling steps | `8` | Enough for this checkpoint. Other checkpoints may need more; follow their model page. |
-| CFG Scale | `1` | Keep it at `1` for this checkpoint. Other checkpoints may need a higher value; follow their model page. |
+| Sampling steps | `8` | Enough for a distilled (Turbo) checkpoint. |
+| CFG Scale | `1` | Keep it at `1` for a distilled (Turbo) checkpoint. |
 | Width / Height | Any (example: `1024` × `1536`) | Base resolution before Hires. fix. |
 
 ### Hires. fix
