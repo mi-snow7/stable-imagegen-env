@@ -10,14 +10,15 @@
 
 ## 2. Download the Model Files
 
-Krea2 needs a checkpoint plus a separate VAE and text encoder.
+Krea2 needs a checkpoint plus a separate VAE and text encoder. Download each file
+yourself; they are not installed with Forge Neo.
 
 | Type | File | Source | Location in the shared Models folder |
 |---|---|---|---|
 | Checkpoint | Any Krea2 checkpoint | <!-- TODO --> | <!-- TODO --> |
-| VAE | `qwen_image_vae.safetensors` | <!-- TODO --> | <!-- TODO --> |
-| Text encoder | `qwen3vl_4b_bf16.safetensors` | <!-- TODO --> | <!-- TODO --> |
-| Upscaler | `4x-UltraSharp` | <!-- TODO --> | <!-- TODO --> |
+| VAE | `qwen_image_vae.safetensors` | Hugging Face (search for the file name) | <!-- TODO --> |
+| Text encoder | `qwen3vl_4b_bf16.safetensors` | Hugging Face (search for the file name) | <!-- TODO --> |
+| Upscaler | `4x-UltraSharp` | Hugging Face (search for the file name) | <!-- TODO --> |
 
 ## 3. Launch Options
 
