@@ -95,8 +95,23 @@ Then change these values:
 | `folder_path` | `C:\path\to\ai-toolkit\datasets/your_dataset` | Your dataset folder |
 
 The values below are the ones in the bundled file, tested on an RTX 4090 (24 GB VRAM).
+Settings that are not listed can stay as they are.
 
-### Model
+### Settings You May Adjust
+
+| Setting | Value | Description | When to change |
+|---|---|---|---|
+| `steps` | `2000` | Total training steps. See [Before You Start](#before-you-start). | Lower it if the LoRA overfits, raise it if the character does not look right yet. Compare the saved files first; an earlier save may already be good. |
+| `lr` | `0.0001` | Learning rate. | Lower it, for example to `0.00005`, if the LoRA copies poses or backgrounds from the dataset. |
+| `linear` | `32` | LoRA rank. Higher values store more detail, but also learn more unwanted detail and make the file larger. | Lower it, for example to `16`, for a smaller file or if the LoRA picks up too much from the dataset. |
+| `linear_alpha` | `32` | Scales the LoRA's effect. With alpha equal to rank, the learning rate is used as is. | Change it together with `linear`. Do not set it higher than `linear`. |
+| `resolution` | `512`, `768`, `1024` | Trains at three resolutions, so the LoRA works at different image sizes. | Remove `512` if the dataset has mostly large images and you only generate at high resolution. |
+| `flip_x` | `false` | Mirrors images during training. | Keep it off for characters with one-sided features, such as a hair part or an accessory on one side. |
+| `save_every` | `200` | Saves a LoRA file every 200 steps. | Lower it to compare more steps, raise it to save disk space. |
+| `disable_sampling` | `true` | No preview images during training, which saves time. The `sample` section is not used. | Turn it off and add prompts to `samples` to watch progress during training. |
+| `low_vram` | `false` | Lowers VRAM use at the cost of speed. | Turn it on if training runs out of VRAM. |
+
+### Settings to Leave as They Are
 
 | Setting | Value | Description |
 |---|---|---|
@@ -104,22 +119,7 @@ The values below are the ones in the bundled file, tested on an RTX 4090 (24 GB 
 | `arch` | `krea2` | Model type. Must match the base model. |
 | `quantize`, `qtype` | `true`, `qfloat8` | Loads the Krea2 model in 8-bit to reduce VRAM use. |
 | `quantize_te`, `qtype_te` | `true`, `qfloat8` | Same for the text encoder. |
-| `low_vram` | `false` | Turn it on if training runs out of VRAM. Training becomes slower. |
-
-### Network
-
-| Setting | Value | Description |
-|---|---|---|
 | `type` | `lora` | Trains a standard LoRA. |
-| `linear` | `32` | LoRA rank. Higher values store more detail but also learn more unwanted detail, and the file gets larger. |
-| `linear_alpha` | `32` | Scales the LoRA's effect. With alpha equal to rank, the learning rate is used as is. Do not set it higher than `linear`. |
-
-### Training
-
-| Setting | Value | Description |
-|---|---|---|
-| `steps` | `2000` | Total training steps. See [Before You Start](#before-you-start). |
-| `lr` | `0.0001` | Learning rate. Lower it if the LoRA overfits early, for example if it copies poses or backgrounds from the dataset. |
 | `optimizer` | `adamw8bit` | AdamW in 8-bit, which uses less VRAM. |
 | `batch_size` | `1` | Images per step. |
 | `gradient_checkpointing` | `true` | Saves VRAM at the cost of some speed. |
@@ -127,25 +127,11 @@ The values below are the ones in the bundled file, tested on an RTX 4090 (24 GB 
 | `train_text_encoder` | `false` | Trains only the image model. |
 | `cache_text_embeddings` | `true` | Encodes the captions once at the start. Restart the job if you edit captions. |
 | `trigger_word` | `null` | Empty, because the captions already contain the trigger word. |
-
-### Dataset
-
-| Setting | Value | Description |
-|---|---|---|
-| `resolution` | `512`, `768`, `1024` | Trains at three resolutions, so the LoRA works at different image sizes. |
 | `num_repeats` | `1` | Not needed; set the amount of training with `steps`. |
 | `caption_dropout_rate` | `0` | Always uses the captions. |
-| `flip_x` | `false` | Mirroring is off. Keep it off for characters with one-sided features, such as a hair part or an accessory on one side. |
 | `cache_latents_to_disk` | `true` | Saves the encoded images to disk, so they are not encoded again on the next run. |
-
-### Save and Samples
-
-| Setting | Value | Description |
-|---|---|---|
-| `save_every` | `200` | Saves a LoRA file every 200 steps. |
 | `max_step_saves_to_keep` | `12` | Keeps up to 12 saved files. With 2000 steps, all 10 saves are kept. |
 | `dtype` (save) | `bf16` | Precision of the saved LoRA file. |
-| `disable_sampling` | `true` | No preview images during training, which saves time. The `sample` section is not used. Turn it off and add prompts to `samples` to watch progress. |
 
 ## 5. Use the LoRA in Forge Neo
 
