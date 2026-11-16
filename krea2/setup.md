@@ -48,8 +48,8 @@ Krea2 needs a checkpoint plus a separate VAE and text encoder.
 | Sampling method | `Euler` | |
 | Schedule type | `Simple` | |
 | Sampling steps | `8` | |
-| CFG Scale | <!-- TODO --> | |
-| Width / Height | <!-- TODO --> | Base resolution before Hires. fix. |
+| CFG Scale | `1` | |
+| Width / Height | Any (example: `1024` × `1536`) | Base resolution before Hires. fix. |
 
 ### Hires. fix
 
@@ -60,8 +60,9 @@ redraws details at the larger size.
 |---|---|---|
 | Upscaler | `4x-UltraSharp` | Upscaler model used before the second pass. |
 | Hires steps | `2` | Steps for the second pass. |
+| Hires CFG Scale | `1` | CFG Scale for the second pass. Keep it the same as CFG Scale. |
 | Denoising strength | `0.35` | How much the second pass may change the image. Higher values add more detail but can change faces and composition. |
-| Upscale by | `1.5` | Final size is the base resolution × 1.5. |
+| Upscale by | `1.5` | Final size is the base resolution × 1.5. For example, `1024` × `1536` becomes `1536` × `2304`. |
 
 ## Troubleshooting
 
