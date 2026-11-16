@@ -48,12 +48,19 @@ Notes on the text encoder:
 
 ### Generation Tab
 
+Recommended values differ between checkpoints. Check the checkpoint's model page
+first, and use the values below as a starting point.
+
+The checkpoint used for this guide is made for few-step generation, so 8 steps and
+CFG Scale `1` are enough. Higher values make generation slower without improving the
+image, and a higher CFG Scale can make colors too strong.
+
 | Setting | Value | Description |
 |---|---|---|
 | Sampling method | `Euler` | |
 | Schedule type | `Simple` | |
-| Sampling steps | `8` | |
-| CFG Scale | `1` | |
+| Sampling steps | `8` | Enough for this checkpoint. Other checkpoints may need more; follow their model page. |
+| CFG Scale | `1` | Keep it at `1` for this checkpoint. Other checkpoints may need a higher value; follow their model page. |
 | Width / Height | Any (example: `1024` × `1536`) | Base resolution before Hires. fix. |
 
 ### Hires. fix
