@@ -42,19 +42,18 @@ Hugging Face the first time you train.
 
 ## 2. Prepare the Dataset
 
-Put the images and their caption files in one folder under `ai-toolkit\datasets`. Each
-image needs a `.txt` file with the same name.
+Create the dataset in the ai-toolkit Web UI:
 
-```
-ai-toolkit\
-  datasets\
-    your_dataset\
-      001.png
-      001.txt
-      002.png
-      002.txt
-      ...
-```
+1. Open **Datasets** and select **New Dataset**.
+2. Enter a name in **Dataset Name** and select **Create**.
+3. Open the new dataset and select **Add Images**.
+4. Drag the images and their `.txt` caption files into the window, or click to select
+   them, and upload them together.
+
+Each image needs a `.txt` file with the same name, such as `001.png` and `001.txt`.
+The captions are shown under each image, so you can check them in the Web UI.
+
+The dataset is saved in `ai-toolkit\datasets\<Dataset Name>`.
 
 ## 3. Create a Training Job
 
