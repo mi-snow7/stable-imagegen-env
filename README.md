@@ -23,9 +23,13 @@ Set up Stability Matrix first. All model guides below assume it is installed.
 
 ## Krea2
 
-1. [Krea2 setup (Forge Neo)](./krea2/setup.md)
-2. [Captioning training images (ComfyUI)](./krea2/captioning.md)
-3. [LoRA training (ai-toolkit)](./krea2/lora-training.md)
+1. [Krea2 setup (Forge Neo)](./krea2/setup.md): Generate images with a Krea2-based
+   checkpoint, from downloading the model files to the generation settings.
+2. Create a Krea2 LoRA
+   - 2.1 [Captioning training images (ComfyUI)](./krea2/captioning.md): Caption the
+     training images with JoyCaption and edit the captions for a character LoRA.
+   - 2.2 [LoRA training (ai-toolkit)](./krea2/lora-training.md): Train the LoRA with
+     ai-toolkit and use it in Forge Neo.
 
 ## Repository Layout
 
