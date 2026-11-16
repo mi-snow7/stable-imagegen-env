@@ -13,12 +13,15 @@
 Krea2 needs a checkpoint plus a separate VAE and text encoder. Download each file
 yourself; they are not installed with Forge Neo.
 
+`<StabilityMatrix>` is the folder where Stability Matrix is installed. LoRA files go in
+`<StabilityMatrix>\Data\Models\Lora`.
+
 | Type | File | Source | Location in the shared Models folder |
 |---|---|---|---|
-| Checkpoint | Any Krea2 checkpoint | <!-- TODO --> | <!-- TODO --> |
-| VAE | `qwen_image_vae.safetensors` | Hugging Face (search for the file name) | <!-- TODO --> |
-| Text encoder | `qwen3vl_4b_bf16.safetensors` | Hugging Face (search for the file name) | <!-- TODO --> |
-| Upscaler | `4x-UltraSharp` | Hugging Face (search for the file name) | <!-- TODO --> |
+| Checkpoint | Any Krea2 checkpoint | Hugging Face or Civitai | `<StabilityMatrix>\Data\Models\StableDiffusion` |
+| VAE | `qwen_image_vae.safetensors` | Hugging Face (search for the file name) | `<StabilityMatrix>\Data\Models\VAE` |
+| Text encoder | `qwen3vl_4b_bf16.safetensors` | Hugging Face (search for the file name) | `<StabilityMatrix>\Data\Models\TextEncoders` |
+| Upscaler | `4x-UltraSharp` | Hugging Face (search for the file name) | `<StabilityMatrix>\Data\Models\ESRGAN` |
 
 ## 3. Launch Options
 
