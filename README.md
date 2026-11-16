@@ -40,5 +40,5 @@ stability-matrix/
   workflows/              # ComfyUI workflows and other config files
 ```
 
-Placeholders such as `C:\path\to\your\dataset` and `your_trigger_word` mark values
+Placeholders such as `triggerword` and `C:\path\to\ai-toolkit` mark values
 you need to change for your own environment.

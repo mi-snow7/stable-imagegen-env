@@ -62,15 +62,12 @@ the caption next to the image:
 3. **JoyCaption** writes a caption for each image.
 4. **Caption Saver** saves each caption as a text file.
 
-In the screenshot, the folder and trigger word are shown as `pathtodatasetimagesdir`
-and `triggerword`.
-
 Before running it, change these two values:
 
 | Node | Field | Placeholder | Set to |
 |---|---|---|---|
-| Load Image List From Dir | `directory` | `C:\path\to\your\dataset` | The folder with your training images |
-| JoyCaption Extra Options | `character_name` | `your_trigger_word` | Your LoRA trigger word |
+| Load Image List From Dir | `directory` | `pathtodatasetimagesdir` | The folder with your training images |
+| JoyCaption Extra Options | `character_name` | `triggerword` | Your LoRA trigger word |
 
 Each image gets a `.txt` file with the same name, which is the format ai-toolkit expects.
 
@@ -83,7 +80,7 @@ character LoRAs on an RTX 4090 (24 GB VRAM).
 
 | Setting | Value | Description |
 |---|---|---|
-| `directory` | `C:\path\to\your\dataset` | Folder to read images from. Placeholder, change it. |
+| `directory` | `pathtodatasetimagesdir` | Folder to read images from. Placeholder, change it. |
 | `image_load_cap` | `0` | Maximum number of images to load. `0` loads all images. Set a small number to test the settings on a few images first. |
 | `start_index` | `0` | Index of the first image to load. Use it to resume a run that stopped part way. Set `sort_method` to `Alphabetical (ASC)` first, so the order is the same on every run. |
 | `load_always` | `false` | When `false`, ComfyUI reuses the images from the previous run while the node settings stay the same. Turn it on if you add or replace images in the same folder; the folder is then read again on every run. |
@@ -133,7 +130,7 @@ Each option adds one instruction to the prompt sent to JoyCaption.
 | `mention_watermark` | `false` | Mentions a watermark if there is one. |
 | **`avoid_meta_descriptive_phrases`** | `true` | Avoids phrases like "This image shows...". These phrases waste tokens and do not appear in real prompts. |
 | **`refer_character_name`** | `true` | Refers to the person or character by `character_name`, so the trigger word appears in every caption. Turn it off for style LoRAs that have no character. |
-| `character_name` | `your_trigger_word` | The trigger word used by `refer_character_name`. Placeholder, change it. |
+| `character_name` | `triggerword` | The trigger word used by `refer_character_name`. Placeholder, change it. |
 
 ### Caption Saver
 
