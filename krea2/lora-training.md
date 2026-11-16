@@ -37,34 +37,10 @@ Python installs.
 When setup finishes, the Web UI opens at `http://localhost:8675`. Use `run_windows.bat`
 every time you start ai-toolkit; it also checks for updates.
 
-## 2. Model Storage
+You do not need to download the Krea2 model yourself. ai-toolkit downloads it from
+Hugging Face the first time you train.
 
-ai-toolkit downloads the model files from Hugging Face the first time you train. It
-does not use the files in the Stability Matrix Models folder.
-
-| Part | Hugging Face repository |
-|---|---|
-| Krea2 model | [`krea/Krea-2-Raw`](https://huggingface.co/krea/Krea-2-Raw) |
-| VAE | [`Qwen/Qwen-Image`](https://huggingface.co/Qwen/Qwen-Image) |
-| Text encoder | [`Qwen/Qwen3-VL-4B-Instruct`](https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct) |
-
-The files are saved in the Hugging Face cache, which is on the C drive by default:
-
-```
-%USERPROFILE%\.cache\huggingface\hub
-```
-
-The files are large. To store them on another drive, set the `HF_HOME` environment
-variable before you start ai-toolkit, then restart the terminal:
-
-```bash
-setx HF_HOME "D:\huggingface"
-```
-
-If a download fails because the repository requires you to log in or accept its terms,
-create an access token on Hugging Face and enter it in the ai-toolkit **Settings** page.
-
-## 3. Prepare the Dataset
+## 2. Prepare the Dataset
 
 Put the images and their caption files in one folder under `ai-toolkit\datasets`. Each
 image needs a `.txt` file with the same name.
@@ -80,7 +56,7 @@ ai-toolkit\
       ...
 ```
 
-## 4. Create a Training Job
+## 3. Create a Training Job
 
 The settings used for this guide are in
 [`workflows/ai-toolkit-character-lora.yaml`](./workflows/ai-toolkit-character-lora.yaml).
@@ -134,7 +110,7 @@ Settings that are not listed can stay as they are.
 | `max_step_saves_to_keep` | `12` | Keeps up to 12 saved files. With 2000 steps, all 10 saves are kept. |
 | `dtype` (save) | `bf16` | Precision of the saved LoRA file. |
 
-## 5. Use the LoRA in Forge Neo
+## 4. Use the LoRA in Forge Neo
 
 The LoRA files are saved in `ai-toolkit\output\<LoRA name>\`, one file per save.
 
