@@ -52,22 +52,25 @@ workflow runs.
 Download [`workflows/joycaption-batch-captioning.json`](./workflows/joycaption-batch-captioning.json)
 and drag it onto the ComfyUI canvas.
 
+![JoyCaption batch captioning workflow in ComfyUI](./images/joycaption-workflow.png)
+
+The workflow reads every image in the folder, captions it with JoyCaption, and saves
+the caption next to the image:
+
+1. **Load Image List From Dir** loads the images and passes their file paths along.
+2. **JoyCaption Extra Options** sets what the captions should and should not include.
+3. **JoyCaption** writes a caption for each image.
+4. **Caption Saver** saves each caption as a text file.
+
+In the screenshot, the folder and trigger word are shown as `pathtodatasetimagesdir`
+and `triggerword`.
+
 Before running it, change these two values:
 
 | Node | Field | Placeholder | Set to |
 |---|---|---|---|
 | Load Image List From Dir | `directory` | `C:\path\to\your\dataset` | The folder with your training images |
 | JoyCaption Extra Options | `character_name` | `your_trigger_word` | Your LoRA trigger word |
-
-The workflow flow is:
-
-```
-Load Image List From Dir ──image──▶ JoyCaption ──caption──▶ Caption Saver
-        │                               ▲                       ▲
-        └──────────file path────────────┼───────────────────────┘
-                                        │
-             JoyCaption Extra Options ──┘
-```
 
 Each image gets a `.txt` file with the same name, which is the format ai-toolkit expects.
 
