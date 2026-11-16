@@ -84,7 +84,8 @@ ai-toolkit\
 
 The settings used for this guide are in
 [`workflows/ai-toolkit-character-lora.yaml`](./workflows/ai-toolkit-character-lora.yaml).
-Create a new job in the Web UI, open the advanced (YAML) view, and paste the file.
+Create a new job in the Web UI, select **Show Advanced** at the top right to open the
+YAML editor, and paste the file.
 Then change these values:
 
 | Setting | Placeholder | Set to |

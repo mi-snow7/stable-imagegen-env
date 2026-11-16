@@ -22,9 +22,11 @@ ComfyUI launch options in Stability Matrix:
 1. Open **Packages** in Stability Matrix.
 2. Open the menu of the ComfyUI package and select **Launch Options**.
 3. Under **Enable Manager**, check `--enable-manager`.
-4. Select **Save**, then start ComfyUI.
+4. In **Extra Launch Arguments**, also enter `--enable-manager`.
+5. Select **Save**, then start ComfyUI.
 
-Leave the other launch options at their defaults.
+The checkbox alone may not show the Manager, so set it in both places. Setting it
+twice does no harm. Leave the other launch options at their defaults.
 
 ## Install the Custom Nodes
 
