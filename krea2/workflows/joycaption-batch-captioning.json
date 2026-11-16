@@ -1,0 +1,301 @@
+{
+  "id": "6815cde1-9919-4071-857c-d3985bacdcd1",
+  "revision": 0,
+  "last_node_id": 13,
+  "last_link_id": 10,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "JC",
+      "pos": [
+        919.2255859375,
+        195
+      ],
+      "size": [
+        289.548828125,
+        174
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 8
+        },
+        {
+          "name": "extra_options",
+          "shape": 7,
+          "type": "JOYCAPTION_EXTRA_OPTIONS",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JC"
+      },
+      "widgets_values": [
+        "joycaption-beta-one",
+        "Full Precision (bf16)",
+        "Descriptive",
+        "any",
+        "Keep in Memory"
+      ],
+      "widgets_values_named": {
+        "model": "joycaption-beta-one",
+        "quantization": "Full Precision (bf16)",
+        "prompt_style": "Descriptive",
+        "caption_length": "any",
+        "memory_management": "Keep in Memory"
+      }
+    },
+    {
+      "id": 11,
+      "type": "LoadImageListFromDir //Inspire",
+      "pos": [
+        505.7928732244316,
+        429.34499999999997
+      ],
+      "size": [
+        323.3326171875,
+        194
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "shape": 6,
+          "type": "IMAGE",
+          "links": [
+            8
+          ]
+        },
+        {
+          "name": "MASK",
+          "shape": 6,
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "name": "FILE PATH",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImageListFromDir //Inspire"
+      },
+      "widgets_values": [
+        "C:\\path\\to\\your\\dataset",
+        0,
+        0,
+        false,
+        "None"
+      ],
+      "widgets_values_named": {
+        "directory": "C:\\path\\to\\your\\dataset",
+        "image_load_cap": 0,
+        "start_index": 0,
+        "load_always": false,
+        "sort_method": "None"
+      }
+    },
+    {
+      "id": 12,
+      "type": "CaptionSaver",
+      "pos": [
+        1281.9099999999996,
+        464.79000000000013
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 9
+        },
+        {
+          "name": "image_path",
+          "type": "STRING",
+          "link": 7
+        },
+        {
+          "name": "image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "CaptionSaver"
+      },
+      "widgets_values": [
+        "",
+        "",
+        true
+      ],
+      "widgets_values_named": {
+        "custom_output_path": "",
+        "custom_file_name": "",
+        "overwrite": true
+      }
+    },
+    {
+      "id": 13,
+      "type": "JC_ExtraOptions",
+      "pos": [
+        52.03944899186756,
+        215.82593518420148
+      ],
+      "size": [
+        400,
+        736
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "extra_options",
+          "type": "JOYCAPTION_EXTRA_OPTIONS",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JC_ExtraOptions"
+      },
+      "widgets_values": [
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        true,
+        "your_trigger_word"
+      ],
+      "widgets_values_named": {
+        "exclude_people_info": true,
+        "include_lighting": true,
+        "include_camera_angle": true,
+        "include_watermark": false,
+        "include_JPEG_artifacts": false,
+        "include_exif": false,
+        "exclude_sexual": false,
+        "exclude_image_resolution": true,
+        "include_aesthetic_quality": false,
+        "include_composition_style": false,
+        "exclude_text": true,
+        "specify_depth_field": false,
+        "specify_lighting_sources": false,
+        "do_not_use_ambiguous_language": true,
+        "include_nsfw": true,
+        "only_describe_most_important_elements": false,
+        "do_not_include_artist_name_or_title": false,
+        "identify_image_orientation": false,
+        "use_vulgar_slang_and_profanity": false,
+        "do_not_use_polite_euphemisms": true,
+        "include_character_age": false,
+        "include_camera_shot_type": true,
+        "exclude_mood_feeling": false,
+        "include_camera_vantage_height": false,
+        "mention_watermark": false,
+        "avoid_meta_descriptive_phrases": true,
+        "refer_character_name": true,
+        "character_name": "your_trigger_word"
+      }
+    }
+  ],
+  "links": [
+    [
+      7,
+      11,
+      2,
+      12,
+      1,
+      "STRING"
+    ],
+    [
+      8,
+      11,
+      0,
+      1,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      1,
+      0,
+      12,
+      0,
+      "STRING"
+    ],
+    [
+      10,
+      13,
+      0,
+      1,
+      1,
+      "JOYCAPTION_EXTRA_OPTIONS"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.100000000000001,
+      "offset": [
+        -464.66441700640837,
+        -71.80356492437082
+      ]
+    },
+    "frontendVersion": "1.57.6"
+  },
+  "version": 0.4
+}
