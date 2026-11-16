@@ -15,7 +15,9 @@ to LoRA training. Each model has its own directory with the same set of guides.
 | Captioning | ComfyUI + JoyCaption |
 | LoRA training | [ai-toolkit](https://github.com/ostris/ai-toolkit) |
 
-## Common
+## Getting Started
+
+Set up Stability Matrix first. All model guides below assume it is installed.
 
 - [Stability Matrix setup](./stability-matrix/setup.md)
 
@@ -32,7 +34,7 @@ Each model directory uses the same file names, so new models can be added the sa
 ```
 README.md                 # This index
 stability-matrix/
-  setup.md                # Shared by all models
+  setup.md                # Set up first; used by all models
 <model>/                  # For example krea2/, flux1/, sdxl-illustrious/
   setup.md                # Install the model and generate images
   captioning.md           # Caption training images
