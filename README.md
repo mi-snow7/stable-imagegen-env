@@ -1,4 +1,4 @@
-# stable-imagegen-env
+# Local Image Generation & LoRA Training Guide
 
 Setup guides for a stable local image generation environment, from installation
 to LoRA training. Each model has its own directory with the same set of guides.
