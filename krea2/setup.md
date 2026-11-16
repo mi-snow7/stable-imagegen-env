@@ -23,6 +23,14 @@ yourself; they are not installed with Forge Neo.
 | Text encoder | `qwen3vl_4b_bf16.safetensors` | Hugging Face (search for the file name) | `<StabilityMatrix>\Data\Models\TextEncoders` |
 | Upscaler | `4x-UltraSharp` | Hugging Face (search for the file name) | `<StabilityMatrix>\Data\Models\ESRGAN` |
 
+Notes on the text encoder:
+
+- If you run out of VRAM, `qwen3vl_4b_fp8_scaled.safetensors` is an option. It is the
+  same model compressed to about half the size, with a possible small loss in quality.
+- Do not use `qwen_3_4b.safetensors` or other files without `vl` in the name. They are a
+  different model (Qwen3 without vision) used by other image models, and Krea2 does not
+  work correctly with them.
+
 ## 3. Launch Options
 
 <!-- TODO -->
