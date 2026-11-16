@@ -114,6 +114,63 @@ Each option adds one instruction to the prompt sent to JoyCaption.
 | `custom_file_name` | *(empty)* | Empty uses the image file name. Leave it empty for training datasets. |
 | `overwrite` | `true` | Overwrites existing caption files. Set `false` to keep old captions; new files then get a number added to the name. |
 
-## Review the Captions
+## Edit the Captions
 
-<!-- TODO: what to check and fix by hand -->
+JoyCaption describes everything it sees. Before training, edit the captions so the
+trigger word learns only what you want it to learn.
+
+The basic idea: **anything not written in the caption is learned by the trigger word.
+Anything written in the caption is not.**
+
+### 1. Remove what the trigger word should learn
+
+Delete the character's fixed features from every caption:
+
+- Hairstyle and hair color
+- Eye color
+- Face and facial features, such as moles or blushing cheeks
+
+`exclude_people_info` in the workflow already leaves out traits such as gender and
+ethnicity, but it keeps changeable traits such as hairstyle. Remove those by hand.
+
+### 2. Keep what the trigger word should not learn
+
+Leave these in the caption, so they can be changed or left out at generation time:
+
+- Accessories, such as hairpins, ribbons, flowers and hats
+- Makeup, such as lipstick, eyeshadow and nail polish
+- Anything that differs from the character's default look, such as a different
+  hairstyle, lighting that changes how the hair color looks, or different glasses
+  frames. Writing these down keeps the default look in the trigger word.
+
+### 3. Decide character-specific features one by one
+
+Some features could belong to either group. Decide for each character:
+
+| Feature example | Decision | Caption |
+|---|---|---|
+| Glasses that the character always wears | Part of the character | Do not write |
+| Skin tone that is part of the character | Part of the character | Do not write |
+| Animal ears and tail | Removable | Always write |
+| A signature hair clip | Removable | Always write |
+
+If you train separate LoRAs for one character with different hairstyles, keep one
+hairstyle per dataset folder and do not write that hairstyle in its captions.
+
+### 4. Use precise wording
+
+- **Skin shine**: always describe it, and say how strong it is.
+  - Strong: `shiny and glossy, with strong specular highlights`
+  - Weak: `slightly shiny`
+  - Avoid vague phrases such as `smooth skin` or `highlights her skin`.
+- **Wet**: use `wet` or `water droplets` only when the image is actually wet. For an
+  oily shine, write `oiled, shiny`, not `wet`.
+- **CGI images**: replace `photograph` with `digital artwork`.
+- **Art style words**: do not add the same style word, such as `3D CGI render`, to every
+  caption. A word that appears in every caption soaks up the character's features,
+  and the trigger word learns less.
+
+### 5. Clean up the dataset
+
+Remove near-duplicate images with almost the same scene and pose. They bias the LoRA
+toward that scene.
